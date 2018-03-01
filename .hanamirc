@@ -1,0 +1,3 @@
+project=waves_forecast
+test=minitest
+template=erb
