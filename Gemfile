@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
+ruby '2.4.3'
+
 gem 'rake'
 gem 'hanami',       '~> 1.1'
 gem 'hanami-model', '~> 1.1'
 
 gem 'pg'
+gem 'httparty'
 
 group :development do
   # Code reloading

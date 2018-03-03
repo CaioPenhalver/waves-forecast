@@ -1,0 +1,25 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: reports
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  memcached:
+    image: memcached
+  web:
+    build: .
+    volumes:
+      - .:/waves_forecast
+    ports:
+      - 2300:2300
+    links:
+      - db
+      - memcached
+    env_file:
+      - .env.docker
+volumes:
+  postgres-data:
