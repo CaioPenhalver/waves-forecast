@@ -1,5 +1,6 @@
 class MSWCommand
   attr_reader :id
+  YOURAPIKEY = 'dkfjsa'
 
   def initialize(id, http_service = HttpService.new)
     @http_service = http_service

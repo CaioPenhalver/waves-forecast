@@ -17,10 +17,11 @@ end
 
 group :test, :development do
   gem 'dotenv', '~> 2.0'
+  gem 'pry'
 end
 
 group :test do
-  gem 'minitest'
+  gem 'rspec'
   gem 'capybara'
 end
 

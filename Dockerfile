@@ -21,11 +21,10 @@ RUN mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/
 RUN rm phantomjs-2.1.1-linux-x86_64.tar.bz2 && rm -rf phantomjs-2.1.1-linux-x86_64/bin
 RUN chmod 755 /usr/local/bin/phantomjs
 
-RUN mkdir -p /bazille
+RUN mkdir -p /waves_forecast
 
 WORKDIR /tmp
 ADD Gemfile Gemfile
-ADD Gemfile.lock Gemfile.lock
 RUN bundle install
 RUN gem install bundler-audit
 
