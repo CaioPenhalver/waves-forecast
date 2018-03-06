@@ -1,6 +1,5 @@
 class MSWCommand
   attr_reader :id
-  YOURAPIKEY = 'dkfjsa'
 
   def initialize(id, http_service = HttpService.new)
     @http_service = http_service
@@ -8,11 +7,11 @@ class MSWCommand
   end
 
   def host
-    'magicseaweed.com'
+    ENV['MSW_URL']
   end
 
   def path
-    "/api/#{YOURAPIKEY}/forecast/?spot_id=#{id}"
+    "/api/#{ENV['MSW_KEY']}/forecast/?spot_id=#{id}"
   end
 
   def header

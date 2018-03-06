@@ -66,21 +66,21 @@ RSpec.describe MSWCommand do
     JSON.generate x
   end
 
-  # subject do
-  #   http_service = instance_double('HttpService')
-  #   response = instance_double('Net::HTTPResponse')
-  #   allow(http_service).to receive(:get).and_return(response)
-  #   allow(response).to receive(:body).and_return(json_response)
-  #   described_class.new(34, http_service).execute
-  # end
   subject do
     http_service = instance_double('HttpService')
     response = instance_double('Net::HTTPResponse')
-    response = Net::HTTPResponse.new(1.0, 200, 'ok')
-    response.body = json_response
     allow(http_service).to receive(:get).and_return(response)
+    allow(response).to receive(:body).and_return(json_response)
     described_class.new(34, http_service).execute
   end
+  # subject do
+  #   http_service = instance_double('HttpService')
+  #   response = instance_double('Net::HTTPResponse')
+  #   response = Net::HTTPResponse.new(1.0, 200, 'ok')
+  #   response.body = json_response
+  #   allow(http_service).to receive(:get).and_return(response)
+  #   described_class.new(34, http_service).execute
+  # end
 
   context 'receive the right respose' do
     it 'receive json' do
